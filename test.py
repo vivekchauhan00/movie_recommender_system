@@ -5,7 +5,7 @@ import streamlit as st
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-TOKEN = os.getenv("TMDB_TOKEN")   
+TOKEN = st.secrets["TOKEN"]   
 
 session = requests.Session()
 retry = Retry(total=3, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504])
